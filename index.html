@@ -18,37 +18,68 @@
             </ul>
         </nav>
     </div>
-    <div id="Blog">
-    <h2>Blog</h2>
+    <div id="Blog" class="content-section">
+        <h2>Blog</h2>
     <p>Espero tenga buen día, me llamo Rodrigo Armando Espinoza Cruz estoy
         estudiando Ing.Sofware en la Universidad Tecnologica del Perú, además 
         de ello tambien me encuentro cursando un curso sobre Front-end en IDAT.
         Naci en Huacho, actualmente vivo en el distrito de Chancay-Huaral-Lima.
     </p>
     </div>
-    <div id="Certificados">
+    <div id="Certificados" class="content-section">
         <h2>Certificados</h2>
-        <table>
-            <img src="CSS/WhatsApp Image 2024-07-06 at 6.26.45 PM.jpeg" alt="Seguridad Portuaria">
-            <img src="CSS/WhatsApp Image 2024-07-06 at 6.27.04 PM.jpeg" alt="PBIP">
-            <img src="CSS/WhatsApp Image 2024-07-06 at 6.27.16 PM.jpeg" alt="Mercancias Peligrosas">
-        </table>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img src="CSS/WhatsApp Image 2024-07-06 at 6.26.45 PM.jpeg" alt="Seguridad Portuaria">
+                </div>
+                <div class="carousel-item">
+                    <img src="CSS/WhatsApp Image 2024-07-06 at 6.27.04 PM.jpeg" alt="PBIP">
+                </div>
+                <div class="carousel-item">
+                    <img src="CSS/WhatsApp Image 2024-07-06 at 6.27.16 PM.jpeg" alt="Mercancias Peligrosas">
+                </div>
+                <div class="carousel-item">
+                    <img src="CSS/Certificadod de estudio.png" alt="SideralCarrion">
+                </div>
+            </div>
+            <button class="carousel-control prev" onclick="moveCarousel(-1)">&#10094;</button>
+            <button class="carousel-control next" onclick="moveCarousel(1)">&#10095;</button>
+        </div>
     </div>
-    <div id="Contactame">
-        <h2>Contactame</h2>
-        <ul>
-        <a>Telefono: 902945630</a>
-        <a href="https://www.facebook.com/profile.php?id=100008676964475" target="_blank">Facebook</a>
-        <a href="" target="_blank">Instagram</a>
-        </ul>
+    <div id="Contactame" class="content-section">
+        <div id="Contactame" class="content-section">
+            <h2>Contáctame</h2>
+            <div class="contact-icons">
+                <div class="contact-icon">
+                    <a href="https://api.whatsapp.com/send?phone=51902945630" target="_blank" title="Teléfono">📞</a>
+                </div>
+                <div class="contact-icon">
+                    <a href="https://www.facebook.com/profile.php?id=100008676964475" target="_blank" title="Facebook">📘</a>
+                </div>
+                <div class="contact-icon">
+                    <a href="https://www.instagram.com/rodrigo_ec/" target="_blank" title="Instagram">📷</a>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div id="Proyectos">
+    <div id="Proyectos" class="content-section">
         <h2>Proyectos</h2>
         <a href="https://github.com/HeroIce01" target="_blank">Github</a>
         <table>
         <img src="" alt="">
         </table>
     </div>
+    <script>
+        let currentSlide = 0;
+
+        function moveCarousel(direction) {
+            const items = document.querySelectorAll('.carousel-item');
+            const totalSlides = items.length;
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            const newTransformValue = -currentSlide * 100;
+            document.querySelector('.carousel-inner').style.transform = `translateX(${newTransformValue}%)`;
+        }
+    </script>
 </body>
 </html>
